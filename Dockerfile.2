@@ -7,9 +7,9 @@ ARG USER_PASSWORD="main"
 ENV USER_NAME $USER_NAME
 ENV USER_PASSWORD $USER_PASSWORD
 ENV CONTAINER_IMAGE_VER=v1.0.0
-
 RUN echo $USER_NAME
 RUN echo $USER_PASSWORD
+
 RUN echo $CONTAINER_IMAGE_VER
 
 USER root
@@ -54,6 +54,7 @@ ENV ZSH_THEME robbyrussell
 # run the installation script  
 #  RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 
 # start zsh

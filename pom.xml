@@ -9,7 +9,7 @@
     <modules>
         <module>KafkaStreams</module>
         <module>restclient</module>
-        <module>Rest-Service</module>
+        <module>rest</module>
   </modules>
 
     <properties>

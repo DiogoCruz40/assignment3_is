@@ -28,7 +28,7 @@ RUN yum install -y epel-release \
     # update the password
     && echo ${USER_NAME}:${USER_PASSWORD} | chpasswd \
     && usermod -aG wheel ${USER_NAME}
-  
+
 # install WildFly
 RUN curl -LO https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final.tar.gz \
  && tar zxvf wildfly-24.0.1.Final.tar.gz \
@@ -40,6 +40,11 @@ RUN /opt/jboss/wildfly/bin/add-user.sh -a -u john '!1secret' --silent -g 'guest'
 ADD --chmod=0755 wildfly-init-config.sh /opt/jboss/wildfly/bin
 ADD --chmod=0755 configure.cli /opt/jboss/wildfly/bin
 
+COPY rest/target/rest.war /opt/jboss/wildfly/standalone/deployments/
+
+RUN chown jboss:jboss /opt/jboss/wildfly/standalone/deployments/rest.war
+
 USER jboss
 
 CMD [ "/opt/jboss/wildfly/bin/wildfly-init-config.sh" ]  
+

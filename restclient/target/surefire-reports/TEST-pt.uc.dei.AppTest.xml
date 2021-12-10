@@ -1,53 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="pt.uc.dei.AppTest" time="0.008" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="pt.uc.dei.AppTest" time="0.006" tests="1" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="16"/>
-    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.runtime.version" value="16.0.2+7-67"/>
-    <property name="java.class.path" value="/workspace/assignment3/restclient/target/test-classes:/workspace/assignment3/restclient/target/classes:/home/main/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
-    <property name="user.name" value="main"/>
-    <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="path.separator" value=":"/>
+    <property name="java.class.path" value="/home/diogo/IdeaProjects/assignment3/restclient/target/test-classes:/home/diogo/IdeaProjects/assignment3/restclient/target/classes:/home/diogo/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="java.vm.vendor" value="Private Build"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="os.version" value="5.14.1-051401-generic"/>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
-    <property name="java.vendor.url" value="https://java.oracle.com/"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vm.specification.version" value="16"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
     <property name="os.name" value="Linux"/>
+    <property name="user.country" value="PT"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="localRepository" value="/home/main/.m2/repository"/>
-    <property name="sun.boot.library.path" value="/usr/java/openjdk-16/lib"/>
-    <property name="sun.java.command" value="/workspace/assignment3/restclient/target/surefire/surefirebooter10396733859285524137.jar /workspace/assignment3/restclient/target/surefire 2021-12-09T23-47-24_192-jvmRun1 surefire9453196049274066501tmp surefire_14511974795718849187tmp"/>
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/workspace/assignment3/restclient/target/test-classes:/workspace/assignment3/restclient/target/classes:/home/main/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="sun.java.command" value="/home/diogo/IdeaProjects/assignment3/restclient/target/surefire/surefirebooter8962431896744524703.jar /home/diogo/IdeaProjects/assignment3/restclient/target/surefire 2021-12-10T16-48-51_386-jvmRun1 surefire5287029969994546232tmp surefire_16372560662034733036tmp"/>
+    <property name="surefire.test.class.path" value="/home/diogo/IdeaProjects/assignment3/restclient/target/test-classes:/home/diogo/IdeaProjects/assignment3/restclient/target/classes:/home/diogo/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.version" value="16.0.2"/>
-    <property name="user.home" value="/home/main"/>
-    <property name="user.dir" value="/workspace/assignment3/restclient"/>
-    <property name="os.arch" value="amd64"/>
-    <property name="user.language" value="en"/>
+    <property name="user.home" value="/home/diogo"/>
+    <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.version.date" value="2021-07-20"/>
-    <property name="java.home" value="/usr/java/openjdk-16"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="basedir" value="/home/diogo/IdeaProjects/assignment3/restclient"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/workspace/assignment3/restclient"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/diogo/IdeaProjects/assignment3/restclient/target/surefire/surefirebooter8962431896744524703.jar"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_292-8u292-b10-0ubuntu1~20.04-b10"/>
+    <property name="user.name" value="diogo"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.14.1-051401-generic"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/diogo/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_292"/>
+    <property name="user.dir" value="/home/diogo/IdeaProjects/assignment3/restclient"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="java.vm.version" value="25.292-b10"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="60.0"/>
-    <property name="surefire.real.class.path" value="/workspace/assignment3/restclient/target/surefire/surefirebooter10396733859285524137.jar"/>
+    <property name="java.class.version" value="52.0"/>
   </properties>
   <testcase name="testApp" classname="pt.uc.dei.AppTest" time="0.001"/>
 </testsuite>
