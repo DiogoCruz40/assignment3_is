@@ -11,7 +11,7 @@ services:
       POSTGRES_DB: app # The PostgreSQL default database (automatically created at first launch)
   wildfly:
     build:
-      context: KafkaStreams
+      context: .
       dockerfile: Dockerfile
     links: 
       - database
@@ -22,7 +22,7 @@ services:
       - 9993:9993
   command-line:
     build:
-     context: KafkaStreams
+     context: .
      dockerfile: Dockerfile.2
     command: tail -f /dev/null
     links: 

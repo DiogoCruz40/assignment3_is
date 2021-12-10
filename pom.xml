@@ -9,7 +9,7 @@
     <modules>
         <module>KafkaStreams</module>
         <module>restclient</module>
-        <module>RestService</module>
+        <module>Rest-Service</module>
   </modules>
 
     <properties>
@@ -69,6 +69,9 @@
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+
+
+
             </plugins>
         </pluginManagement>
     </build>
