@@ -30,9 +30,9 @@ public class User implements Serializable {
 
     @Column(name="wallet", nullable=false, unique=false)
     private double wallet;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<UserTrip> userTrips;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+//    private List<UserTrip> userTrips;
 
     public User() { }
 
@@ -89,10 +89,10 @@ public class User implements Serializable {
 
     public void setManager(boolean isManager) { this.isManager = isManager; }
 
-    public void setUserTrips(List<UserTrip> userTrips) {
-        this.userTrips = userTrips;
-    }
-    public List<UserTrip> getUserTrips() {
-        return userTrips;
-    }
+//    public void setUserTrips(List<UserTrip> userTrips) {
+//        this.userTrips = userTrips;
+//    }
+//    public List<UserTrip> getUserTrips() {
+//        return userTrips;
+//    }
 }

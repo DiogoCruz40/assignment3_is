@@ -9,9 +9,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <artifactId>Rest-Service</artifactId>
     <version>1</version>
   </parent>
+
   <artifactId>ejbs</artifactId>
   <packaging>ejb</packaging>
   <name>enterprise java bos</name>
+
   <dependencies>
     <dependency>
       <groupId>book</groupId>

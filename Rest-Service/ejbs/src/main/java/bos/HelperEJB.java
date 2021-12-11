@@ -15,8 +15,6 @@ public class HelperEJB implements IHelperEJB {
     @PersistenceContext(unitName = "ManageApp")
     EntityManager em;
 
-
-
     private static boolean updaterequired = false;
 
     @Override

@@ -1,12 +1,5 @@
-dtos/PurchaseTripDTO.class
-dtos/SearchTripsDTO.class
-bos/SystemEJB.class
-bos/UserEJB.class
-bos/ISystemEJB.class
 dtos/UserDTO.class
-bos/TripEJB.class
 bos/IHelperEJB.class
-bos/ITripEJB.class
 bos/HelperEJB.class
+bos/UserEJB.class
 bos/IUserEJB.class
-dtos/TripDTO.class

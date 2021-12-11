@@ -7,7 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.*;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.List;
 
 @Stateless
 public class UserEJB implements IUserEJB{
@@ -18,7 +17,7 @@ public class UserEJB implements IUserEJB{
     @Override
     public UserDTO insert(UserDTO dto) throws NoSuchAlgorithmException, InvalidKeySpecException {
         UserDAO userDAO = new UserDAO(em);
-        User newUser = userDAO.insert(dto.getEmailuser(), dto.getNomeuser(), dto.getPassword(), dto.isManager());
+        User newUser = userDAO.insert(dto.getEmailuser(), dto.getNomeuser(), dto.getPassword(), dto.getIsManager());
 
         dto.setId(newUser.getId());
         return dto;
@@ -36,7 +35,7 @@ public class UserEJB implements IUserEJB{
             dto.setId(userEntity.getId());
             dto.setEmailuser(userEntity.getEmailuser());
             dto.setNomeuser(userEntity.getNomeuser());
-            dto.setManager(userEntity.isManager());
+            dto.setIsManager(userEntity.isManager());
         }
 
         return dto;

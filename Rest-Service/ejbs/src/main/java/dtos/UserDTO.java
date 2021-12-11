@@ -1,6 +1,5 @@
 package dtos;
 
-
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
@@ -11,7 +10,6 @@ public class UserDTO implements Serializable {
     private String nomeuser;
     private String password;
     private boolean isManager;
-    private long place;
 
     public UserDTO() {};
     public UserDTO(String emailuser, String nomeuser, String password, boolean isManager) {
@@ -19,13 +17,6 @@ public class UserDTO implements Serializable {
         this.nomeuser = nomeuser;
         this.password = password;
         this.isManager = isManager;
-    }
-
-    public UserDTO(long id, String emailuser, String nomeuser, long place) {
-        this.id = id;
-        this.emailuser = emailuser;
-        this.nomeuser = nomeuser;
-        this.place = place;
     }
 
     public UserDTO(long id, String emailuser, String nomeuser) {
@@ -66,19 +57,11 @@ public class UserDTO implements Serializable {
         this.password = password;
     }
 
-    public boolean isManager() {
+    public boolean getIsManager() {
         return isManager;
     }
 
-    public void setManager(boolean manager) {
+    public void setIsManager(boolean manager) {
         isManager = manager;
-    }
-
-    public long getPlace() {
-        return place;
-    }
-
-    public void setPlace(long place) {
-        this.place = place;
     }
 }

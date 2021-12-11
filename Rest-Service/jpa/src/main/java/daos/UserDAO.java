@@ -1,16 +1,13 @@
 package daos;
 
 import entities.User;
-import entities.UserTrip;
 
+import static security.PasswordSecurity.*;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
-import static security.PasswordSecurity.generateStrongPasswordHash;
-import static security.PasswordSecurity.validatePassword;
 
 public class UserDAO {
 
@@ -81,12 +78,6 @@ public class UserDAO {
         User user = em.createQuery(
                 "SELECT u FROM User u WHERE u.emailuser LIKE :email", User.class).setParameter("email", email).getSingleResult();
 
-        List userTrips = em.createQuery("SELECT ut FROM UserTrip ut JOIN ut.trip t JOIN ut.user u WHERE u.id = :userId ORDER BY t.departureDate DESC")
-                .setParameter("userId", user.getId())
-                .getResultList();
-        for (UserTrip ut : (List<UserTrip>) userTrips){
-            em.remove(ut);
-        }
         em.remove(user);
         em.flush();
     }

@@ -1,7 +1,3 @@
-daos/SystemDAO.class
-entities/User.class
-entities/UserTrip.class
 security/PasswordSecurity.class
 daos/UserDAO.class
-entities/Trip.class
-daos/TripDAO.class
+entities/User.class
