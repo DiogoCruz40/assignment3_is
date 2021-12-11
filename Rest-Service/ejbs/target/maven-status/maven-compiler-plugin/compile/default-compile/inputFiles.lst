@@ -1,0 +1,12 @@
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/PurchaseTripDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IHelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/TripDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/SearchTripsDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/ISystemEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/TripEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/ITripEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IUserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/SystemEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/UserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/UserDTO.java
