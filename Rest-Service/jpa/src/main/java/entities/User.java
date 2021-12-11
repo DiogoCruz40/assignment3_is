@@ -13,7 +13,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "user_id_seq")
     @SequenceGenerator(initialValue=4,name = "user_id_seq", sequenceName = "user_id_seq")
-    @Column(name = "userid",nullable = false)
+    @Column(name = "id",nullable = false)
     private long id;
 
     @Column(name="emailuser", nullable=false, unique=true)

@@ -20,8 +20,11 @@ $ `/opt/kafka_2.13-2.8.1/bin/kafka-server-start.sh /opt/kafka_2.13-2.8.1/config/
 
 ##Start the source and sink connection
 
-###Copy the the source and sink files to config (new terminal):
+###Copy the source and sink files to config (new terminal):
 $ `cp -a /workspace/assignment3/KafkaStreams/src/main/java/connection/. /opt/kafka_2.13-2.8.1/config/
+`
+###Copy the jdbc libs to kafka libs (new terminal):
+$ `cp -a /workspace/assignment3/KafkaStreams/src/main/java/libs/. /opt/kafka_2.13-2.8.1/libs/
 `
 
 ###Create the connection:
@@ -36,3 +39,10 @@ $ `/opt/kafka_2.13-2.8.1/bin/connect-standalone.sh /opt/kafka_2.13-2.8.1/config/
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>
 https://eai-course.blogspot.com/2018/11/playing-with-kafka-streams.html
+
+#Usefull commands:
+### List available topics:  
+$ `./bin/kafka-topics.sh --bootstrap-server=localhost:9092 --list`
+
+### Create a consumer:
+$ `./bin/kafka-console-consumer.sh --topic DBInfo-currencyentity --from-beginning --bootstrap-server localhost:9092`

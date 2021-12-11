@@ -1,3 +1,5 @@
+entities/User.class
 security/PasswordSecurity.class
 daos/UserDAO.class
-entities/User.class
+entities/Currency.class
+daos/CurrencyDAO.class

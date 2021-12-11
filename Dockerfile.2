@@ -39,6 +39,9 @@ RUN mv kafka_2.13-2.8.1 /opt/
 RUN chown -R ${USER_NAME}.${USER_NAME} /opt/kafka_2.13-2.8.1/
 RUN rm kafka_2.13-2.8.1.tgz
 
+COPY ./KafkaStreams/src/main/java/connection/. /opt/kafka_2.13-2.8.1/config/
+COPY ./KafkaStreams/src/main/java/libs/. /opt/kafka_2.13-2.8.1/libs/
+
 # install jax-ws (wsimport.sh)
 RUN curl -LO https://repo1.maven.org/maven2/com/sun/xml/ws/jaxws-ri/3.0.2/jaxws-ri-3.0.2.zip \
   && unzip jaxws-ri-3.0.2.zip
@@ -51,10 +54,9 @@ ENV TERM xterm
 # set the zsh theme
 ENV ZSH_THEME robbyrussell
 
-# run the installation script  
+# run the installation script
 #  RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 
 
 # start zsh
