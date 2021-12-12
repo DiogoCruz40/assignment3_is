@@ -9,5 +9,5 @@ Class-Path: lib/jpa.jar lib/hibernate-core.jar lib/javax.persistence-api
  ntime.jar lib/txw2.jar lib/istack-commons-runtime.jar lib/stax-ex.jar l
  ib/FastInfoset.jar lib/antlr4.jar lib/antlr4-runtime.jar lib/antlr-runt
  ime.jar lib/ST4.jar lib/org.abego.treelayout.core.jar lib/javax.json.ja
- r lib/icu4j.jar
+ r lib/icu4j.jar lib/gson.jar
 

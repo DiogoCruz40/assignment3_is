@@ -10,7 +10,8 @@
         <module>KafkaStreams</module>
         <module>restclient</module>
         <module>Rest-Service</module>
-  </modules>
+        <module>KafkaClients</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

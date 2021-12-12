@@ -1,0 +1,5 @@
+Clients$Consumer.class
+dtos/UserDTO.class
+Clients.class
+dtos/CreditPaymentDTO.class
+dtos/CurrencyDTO.class
