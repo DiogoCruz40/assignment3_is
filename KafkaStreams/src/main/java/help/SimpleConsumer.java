@@ -1,4 +1,4 @@
-package kafka;
+package help;
 import java.util.Collections;
 import java.util.Properties;
 import org.apache.kafka.clients.consumer.Consumer;

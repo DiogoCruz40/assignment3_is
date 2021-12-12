@@ -21,7 +21,7 @@ Payment {
 }
 */
 
-public class Client {
+public class Clients {
 
     private static CopyOnWriteArrayList<UserDTO> users;
     private static CopyOnWriteArrayList<CurrencyDTO> currencies;
@@ -35,6 +35,7 @@ public class Client {
 
         // producer
 
+        //gson object to string
 
     }
 
@@ -51,6 +52,8 @@ public class Client {
         @Override
         public void run() {
             //consumer
+
+            //gson string to object
         }
     }
 }

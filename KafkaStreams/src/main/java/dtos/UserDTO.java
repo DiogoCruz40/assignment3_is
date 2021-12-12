@@ -3,7 +3,7 @@ package dtos;
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
-    private static final long serialVersionUID = -1151657620074187511L;
+    private static final long serialVersionUID = 1913447723886831336L;
 
     private long id;
     private String emailuser;

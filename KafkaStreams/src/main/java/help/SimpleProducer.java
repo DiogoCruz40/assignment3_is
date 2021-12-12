@@ -1,4 +1,4 @@
-package kafka;
+package help;
 
 //import util.properties packages
 import java.util.Properties;

@@ -23,7 +23,7 @@ $ `/opt/kafka_2.13-2.8.1/bin/kafka-server-start.sh /opt/kafka_2.13-2.8.1/config/
 ###Copy the source and sink files to config (new terminal):
 $ `cp -a /workspace/assignment3/KafkaStreams/src/main/java/connection/. /opt/kafka_2.13-2.8.1/config/
 `
-###Copy the jdbc libs to kafka libs (new terminal):
+###Copy the jdbc libs to kafka libs:
 $ `cp -a /workspace/assignment3/KafkaStreams/src/main/java/libs/. /opt/kafka_2.13-2.8.1/libs/
 `
 
@@ -36,13 +36,19 @@ $ `/opt/kafka_2.13-2.8.1/bin/connect-standalone.sh /opt/kafka_2.13-2.8.1/config/
 2. then, Kafka streams
 3. finnally, the Producer
 
+#To execute the application:
+$ `java -jar KafkaStreams/target/KafkaStreams-1.0-SNAPSHOT.jar restclient/target/restclient-1.jar`
+
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>
 https://eai-course.blogspot.com/2018/11/playing-with-kafka-streams.html
 
 #Usefull commands:
 ### List available topics:  
-$ `./bin/kafka-topics.sh --bootstrap-server=localhost:9092 --list`
+$ `/opt/kafka_2.13-2.8.1/bin/kafka-topics.sh --bootstrap-server=localhost:9092 --list`
 
 ### Create a consumer:
-$ `./bin/kafka-console-consumer.sh --topic DBInfo-currencyentity --from-beginning --bootstrap-server localhost:9092`
+$ `/opt/kafka_2.13-2.8.1/bin/kafka-console-consumer.sh --topic DBInfo-currencyentity --from-beginning --bootstrap-server localhost:9092`
+
+### Create a producer:
+$ `/opt/kafka_2.13-2.8.1/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic kafka_topic`
