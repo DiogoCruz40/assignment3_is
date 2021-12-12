@@ -174,8 +174,9 @@ public class Clients {
 
                     for (ConsumerRecord<String, String> record : records) {
 //                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
-                        UserDTO user = gson.fromJson(obj.get("payload"), UserDTO.class);
+//                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
+//                        UserDTO user = gson.fromJson(obj.get("payload"), UserDTO.class);
+                        UserDTO user = gson.fromJson(String.valueOf(record.value()), UserDTO.class);
                         if (user.isIsmanager()) {
                             managers.add(user);
                         } else {
@@ -194,8 +195,9 @@ public class Clients {
 
                     for (ConsumerRecord<String, String> record : records) {
 //                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
-                        CurrencyDTO currency = gson.fromJson(obj.get("payload"), CurrencyDTO.class);
+//                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
+//                        CurrencyDTO currency = gson.fromJson(obj.get("payload"), CurrencyDTO.class);
+                        CurrencyDTO currency = gson.fromJson(String.valueOf(record.value()), CurrencyDTO.class);
                         currencies.add(currency);
                     }
                     currencyconsumer.commitAsync();
