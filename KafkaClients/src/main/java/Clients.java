@@ -136,7 +136,7 @@ public class Clients {
             Properties props = new Properties();
 
             //Assign localhost id
-            props.put("bootstrap.servers", "localhost:9092");
+            props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 
             //Set acknowledgements for producer requests.
             props.put("acks", "all");
@@ -156,6 +156,7 @@ public class Clients {
             props.put(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
             props.put(ConsumerConfig.CLIENT_ID_CONFIG, "your_client_id");
             props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+            props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
             props.put("key.deserializer",
                     "org.apache.kafka.common.serialization.StringDeserializer");
@@ -181,6 +182,7 @@ public class Clients {
                             clients.add(user);
                         }
                     }
+                    usersconsumer.commitAsync();
 
                 }
             } else {
@@ -189,12 +191,14 @@ public class Clients {
                 while (true)
                 {
                     ConsumerRecords<String, String> records = currencyconsumer.poll(Duration.ofMillis(Long.MAX_VALUE));
+
                     for (ConsumerRecord<String, String> record : records) {
 //                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
                         JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
                         CurrencyDTO currency = gson.fromJson(obj.get("payload"), CurrencyDTO.class);
                         currencies.add(currency);
                     }
+                    currencyconsumer.commitAsync();
                 }
             }
         }
