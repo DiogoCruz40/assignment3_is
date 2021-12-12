@@ -1,8 +1,8 @@
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/IUserEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/IHelperEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/CurrencyEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/UserEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/dtos/UserDTO.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/ICurrencyEJB.java
-/workspace/assignment3_is/Rest-Service/ejbs/src/main/java/dtos/CurrencyDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/ICurrencyEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IHelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/CurrencyDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/CurrencyEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IUserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/UserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/UserDTO.java

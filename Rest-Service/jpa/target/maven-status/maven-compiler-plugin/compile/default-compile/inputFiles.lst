@@ -1,5 +1,5 @@
-/workspace/assignment3_is/Rest-Service/jpa/src/main/java/daos/UserDAO.java
-/workspace/assignment3_is/Rest-Service/jpa/src/main/java/daos/CurrencyDAO.java
-/workspace/assignment3_is/Rest-Service/jpa/src/main/java/entities/User.java
-/workspace/assignment3_is/Rest-Service/jpa/src/main/java/security/PasswordSecurity.java
-/workspace/assignment3_is/Rest-Service/jpa/src/main/java/entities/Currency.java
+/workspace/assignment3/Rest-Service/jpa/src/main/java/security/PasswordSecurity.java
+/workspace/assignment3/Rest-Service/jpa/src/main/java/entities/Currency.java
+/workspace/assignment3/Rest-Service/jpa/src/main/java/daos/UserDAO.java
+/workspace/assignment3/Rest-Service/jpa/src/main/java/daos/CurrencyDAO.java
+/workspace/assignment3/Rest-Service/jpa/src/main/java/entities/User.java
