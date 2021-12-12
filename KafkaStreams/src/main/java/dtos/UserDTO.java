@@ -9,14 +9,14 @@ public class UserDTO implements Serializable {
     private String emailuser;
     private String nomeuser;
     private String password;
-    private boolean isManager;
+    private boolean ismanager;
 
     public UserDTO() {};
-    public UserDTO(String emailuser, String nomeuser, String password, boolean isManager) {
+    public UserDTO(String emailuser, String nomeuser, String password, boolean ismanager) {
         this.emailuser = emailuser;
         this.nomeuser = nomeuser;
         this.password = password;
-        this.isManager = isManager;
+        this.ismanager = ismanager;
     }
 
     public UserDTO(long id, String emailuser, String nomeuser) {
@@ -57,11 +57,11 @@ public class UserDTO implements Serializable {
         this.password = password;
     }
 
-    public boolean getIsManager() {
-        return isManager;
+    public boolean isIsmanager() {
+        return ismanager;
     }
 
-    public void setIsManager(boolean manager) {
-        isManager = manager;
+    public void setIsmanager(boolean ismanager) {
+        this.ismanager = ismanager;
     }
 }

@@ -1,0 +1,7 @@
+help/SimpleConsumer.class
+help/SimpleStreamsExercises.class
+dtos/CreditPaymentDTO.class
+KafkaStreams/CreditPerClient.class
+dtos/UserDTO.class
+help/SimpleProducer.class
+dtos/CurrencyDTO.class
