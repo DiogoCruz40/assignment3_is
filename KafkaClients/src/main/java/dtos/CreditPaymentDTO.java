@@ -10,10 +10,10 @@ public class CreditPaymentDTO implements Serializable {
     private long id_client;
     private long id_currency;
     private double value;
-    private double exchangerate;
+    private float exchangerate;
     private Date date;
 
-    public CreditPaymentDTO(long id_manager, long id_client, long id_currency, double value, double exchangeRate, Date date) {
+    public CreditPaymentDTO(long id_manager, long id_client, long id_currency, double value, float exchangeRate, Date date) {
         this.id_manager = id_manager;
         this.id_client = id_client;
         this.id_currency = id_currency;
@@ -50,7 +50,7 @@ public class CreditPaymentDTO implements Serializable {
         return exchangerate;
     }
 
-    public void setExchangerate(double exchangerate) {
+    public void setExchangerate(float exchangerate) {
         this.exchangerate = exchangerate;
     }
 

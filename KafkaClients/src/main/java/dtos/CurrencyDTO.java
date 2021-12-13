@@ -7,19 +7,19 @@ public class CurrencyDTO implements Serializable {
 
     private long id;
     private String name;
-    private double exchangeRate;
+    private float exchangerate;
 
     public CurrencyDTO() {};
 
-    public CurrencyDTO(long id, String name, double exchangeRate) {
+    public CurrencyDTO(long id, String name, float exchangeRate) {
         this.id = id;
         this.name = name;
-        this.exchangeRate = exchangeRate;
+        this.exchangerate = exchangeRate;
     }
 
-    public CurrencyDTO(String name, double exchangeRate) {
+    public CurrencyDTO(String name, float exchangeRate) {
         this.name = name;
-        this.exchangeRate = exchangeRate;
+        this.exchangerate = exchangeRate;
     }
 
     public long getId() {
@@ -38,11 +38,11 @@ public class CurrencyDTO implements Serializable {
         this.name = name;
     }
 
-    public double getExchangeRate() {
-        return exchangeRate;
+    public float getExchangeRate() {
+        return exchangerate;
     }
 
-    public void setExchangeRate(double exchangeRate) {
-        this.exchangeRate = exchangeRate;
+    public void setExchangeRate(float exchangeRate) {
+        this.exchangerate = exchangeRate;
     }
 }
