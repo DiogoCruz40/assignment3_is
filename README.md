@@ -44,6 +44,44 @@ $ `cd /workspace/assignment3/KafkaClients && mvn clean package && cd /workspace/
 ###Execute the app:
 $ `java -jar /workspace/assignment3/KafkaClients/target/KafkaClients-jar-with-dependencies.jar /workspace/assignment3/KafkaStreams/target/KafkaStreams-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
+#See results using Postman:
+
+##Inserir moeda:
+$ `http://localhost:8080/rest/services/myservice/currency`
+####BODY:
+`{
+"name": "dollar8",
+"exchangeRate": 1.5
+}`
+##Inserir user:
+$ `http://localhost:8080/rest/services/myservice/user`
+####BODY:
+`{
+"emailuser": "client2@test.com",
+"nomeuser": "cliient",
+"password": "password123",
+"isManager": false
+}`
+##Get creditos por cliente:
+$ `http://localhost:8080/rest/services/myservice/creditperclient`
+
+##Get pagamentos por cliente:
+$ `http://localhost:8080/rest/services/myservice/paymentperclient`
+
+##Get o balanço de um cliente pelo email:
+$ `http://localhost:8080/rest/services/myservice/balanceofaclient/${emailuser}` \
+\
+**Nota:** Substituir a variável por um email de cliente
+
+##Get a soma de creditos total:
+$ `http://localhost:8080/rest/services/myservice/sumofcredits`
+
+##Get a soma de pagamentos total:
+$ `http://localhost:8080/rest/services/myservice/sumofpayments`
+
+##Get balanço total:
+$ `http://localhost:8080/rest/services/myservice/totalbalance`
+
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>
 https://eai-course.blogspot.com/2018/11/playing-with-kafka-streams.html

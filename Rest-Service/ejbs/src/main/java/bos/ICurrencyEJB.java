@@ -1,9 +1,12 @@
 package bos;
 
 import dtos.CurrencyDTO;
-import javax.ejb.Remote;
+import dtos.CurrencysDTO;
 
-@Remote
+import javax.ejb.Local;
+
+@Local
 public interface ICurrencyEJB {
     public CurrencyDTO insert(CurrencyDTO dto);
+    public CurrencysDTO getallcurrencys();
 }

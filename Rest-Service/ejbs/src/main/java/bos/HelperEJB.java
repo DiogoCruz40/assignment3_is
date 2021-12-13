@@ -1,6 +1,6 @@
 package bos;
 
-import daos.UserDAO;
+import  daos.UserDAO;
 
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;

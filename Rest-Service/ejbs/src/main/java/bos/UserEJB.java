@@ -1,12 +1,16 @@
 package bos;
 
 import daos.UserDAO;
-import dtos.UserDTO;
+import dtos.*;
+import entities.ClientCredit;
 import entities.User;
+
 import javax.ejb.Stateless;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 
 @Stateless
 public class UserEJB implements IUserEJB{
@@ -88,4 +92,82 @@ public class UserEJB implements IUserEJB{
         UserDAO userDAO = new UserDAO(em);
         userDAO.updatewallet(id,wallet);
     }
+
+    @Override
+    public UsersDTO getallusers() {
+        UserDAO userDAO = new UserDAO(em);
+
+        ArrayList<UserDTO> usersDTO = new ArrayList<>();
+        for (User user : userDAO.getallusers())
+        {
+            UserDTO userDTO = new UserDTO(user.getId(),user.getEmailuser(),user.getNomeuser());
+            usersDTO.add(userDTO);
+        }
+        return new UsersDTO(usersDTO);
+    }
+
+    @Override
+    public UsersDTO getallmanagers() {
+        UserDAO userDAO = new UserDAO(em);
+
+        ArrayList<UserDTO> usersDTO = new ArrayList<>();
+        for (User user : userDAO.getallmanagers())
+        {
+            UserDTO userDTO = new UserDTO(user.getId(),user.getEmailuser(),user.getNomeuser());
+            usersDTO.add(userDTO);
+        }
+        return new UsersDTO(usersDTO);
+    }
+
+    @Override
+    public ClientsCreditsDTO getcreditperclient() {
+        UserDAO userDAO = new UserDAO(em);
+        ArrayList<ClientCreditDTO> clientsCreditsDTO = new ArrayList<>();
+        for (ClientCredit clientCredit : userDAO.getcreditperclient())
+        {
+            UserDTO userDTO = new UserDTO(clientCredit.getUser().getId(),clientCredit.getUser().getEmailuser(),clientCredit.getUser().getNomeuser());
+            ClientCreditDTO clientCreditDTO = new ClientCreditDTO(userDTO,clientCredit.getCredit());
+            clientsCreditsDTO.add(clientCreditDTO);
+        }
+        return new ClientsCreditsDTO(clientsCreditsDTO);
+    }
+
+    @Override
+    public ClientsPaymentsDTO getpaymentperclient() {
+        UserDAO userDAO = new UserDAO(em);
+        ArrayList<ClientPaymentDTO> clientsPaymentsDTO = new ArrayList<>();
+
+        for (ClientCredit clientCredit : userDAO.getpaymentperclient())
+        {
+            UserDTO userDTO = new UserDTO(clientCredit.getUser().getId(),clientCredit.getUser().getEmailuser(),clientCredit.getUser().getNomeuser());
+           ClientPaymentDTO clientpaymentDTO= new ClientPaymentDTO(userDTO,clientCredit.getPayment());
+            clientsPaymentsDTO.add(clientpaymentDTO);
+        }
+        return new ClientsPaymentsDTO(clientsPaymentsDTO);
+    }
+
+    @Override
+    public ClientCreditPaymentDTO getbalanceofclient(String emailuser) {
+        UserDAO userDAO = new UserDAO(em);
+       ClientCredit clientCredit = userDAO.getbalanceofclient(emailuser);
+       if(clientCredit != null)
+       {
+           UserDTO userDTO = new UserDTO(clientCredit.getUser().getId(),clientCredit.getUser().getEmailuser(),clientCredit.getUser().getNomeuser());
+           return new ClientCreditPaymentDTO(userDTO,clientCredit.getCredit() + clientCredit.getPayment());
+       }
+       return null;
+    }
+
+    @Override
+    public double gettotalcredits() {
+        UserDAO userDAO = new UserDAO(em);
+        return userDAO.gettotalcredits();
+    }
+
+    @Override
+    public double GetTotalPayments() {
+        UserDAO userDAO = new UserDAO(em);
+        return userDAO.GetTotalPayments();
+    }
+
 }

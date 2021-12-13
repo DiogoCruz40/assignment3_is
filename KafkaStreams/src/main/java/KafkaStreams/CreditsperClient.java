@@ -37,27 +37,27 @@ public class CreditsperClient {
         StreamsBuilder builder = new StreamsBuilder();
         final String creditsOutTopicName = "CreditsPerClient";
 
-        Map<String, Object> serdeProps = new HashMap<>();
-        final Serializer<CreditPaymentDTO> creditPaymentDTOSerializer = new JsonPOJOSerializer<>();
-        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
-        creditPaymentDTOSerializer.configure(serdeProps, false);
-
-        final Deserializer<CreditPaymentDTO> creditPaymentDTODeserializer = new JsonPOJODeserializer<>();
-        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
-        creditPaymentDTODeserializer.configure(serdeProps, false);
-
-        final Serde<CreditPaymentDTO> creditPaymentDTOSerde = Serdes.serdeFrom(creditPaymentDTOSerializer, creditPaymentDTODeserializer);
-
-        serdeProps = new HashMap<>();
-        final Serializer<CreditDTO> creditDTOSerializer = new JsonPOJOSerializer<>();
-        serdeProps.put("JsonPOJOClass", CreditDTO.class);
-        creditDTOSerializer.configure(serdeProps, false);
-
-        final Deserializer<CreditDTO> creditDTODeserializer = new JsonPOJODeserializer<>();
-        serdeProps.put("JsonPOJOClass", CreditDTO.class);
-        creditDTODeserializer.configure(serdeProps, false);
-
-        final Serde<CreditDTO> creditDTOSerde = Serdes.serdeFrom(creditDTOSerializer, creditDTODeserializer);
+//        Map<String, Object> serdeProps = new HashMap<>();
+//        final Serializer<CreditPaymentDTO> creditPaymentDTOSerializer = new JsonPOJOSerializer<>();
+//        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
+//        creditPaymentDTOSerializer.configure(serdeProps, false);
+//
+//        final Deserializer<CreditPaymentDTO> creditPaymentDTODeserializer = new JsonPOJODeserializer<>();
+//        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
+//        creditPaymentDTODeserializer.configure(serdeProps, false);
+//
+//        final Serde<CreditPaymentDTO> creditPaymentDTOSerde = Serdes.serdeFrom(creditPaymentDTOSerializer, creditPaymentDTODeserializer);
+//
+//        serdeProps = new HashMap<>();
+//        final Serializer<CreditDTO> creditDTOSerializer = new JsonPOJOSerializer<>();
+//        serdeProps.put("JsonPOJOClass", CreditDTO.class);
+//        creditDTOSerializer.configure(serdeProps, false);
+//
+//        final Deserializer<CreditDTO> creditDTODeserializer = new JsonPOJODeserializer<>();
+//        serdeProps.put("JsonPOJOClass", CreditDTO.class);
+//        creditDTODeserializer.configure(serdeProps, false);
+//
+//        final Serde<CreditDTO> creditDTOSerde = Serdes.serdeFrom(creditDTOSerializer, creditDTODeserializer);
 //        KStream<String, CreditPaymentDTO> linesCredito = builder.stream("Credits", Consumed.with(Serdes.String(), creditPaymentDTOSerde));
 
         KStream<Long, String> linesCredito = builder.stream("Credits");
@@ -146,12 +146,12 @@ public class CreditsperClient {
         streams.close();
         streams2.close();
     }
-    public static double getValue(String jsonString)
-    {
-        Gson gson = new Gson();
-        JsonObject jsonObject = gson.fromJson(jsonString,JsonObject.class);
-        CreditPaymentDTO creditsDTO = gson.fromJson(jsonObject.get("payload"),CreditPaymentDTO.class);
-        return creditsDTO.getValue() + (creditsDTO.getValue()*creditsDTO.getExchangerate());
-    }
+//    public static double getValue(String jsonString)
+//    {
+//        Gson gson = new Gson();
+//        JsonObject jsonObject = gson.fromJson(jsonString,JsonObject.class);
+//        CreditPaymentDTO creditsDTO = gson.fromJson(jsonObject.get("payload"),CreditPaymentDTO.class);
+//        return creditsDTO.getValue() + (creditsDTO.getValue()*creditsDTO.getExchangerate());
+//    }
 }
 

@@ -1,20 +1,12 @@
+import bos.ICurrencyEJB;
+import bos.IUserEJB;
+import dtos.*;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.enterprise.context.*;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.enterprise.context.Dependent;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-
-import bos.ICurrencyEJB;
-import dtos.CurrencyDTO;
-import dtos.UserDTO;
-import bos.IUserEJB;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -30,12 +22,59 @@ public class MyService {
     @EJB
     private ICurrencyEJB currencyEJB;
 
+    @GET
+    @Path("/users")
+    public UsersDTO GetAllUsers() {
+        return userEJB.getallusers();
+    }
 
     @GET
-    @Path("/user")
-    public String GetAllUsers() {
-        System.out.println("M1 executing....");
-        return "M1 adasdexecuted...";
+    @Path("/managers")
+    public UsersDTO GetAllManagers() {
+        return userEJB.getallmanagers();
+    }
+
+    @GET
+    @Path("/currencys")
+    public CurrencysDTO GetAllCurrencys() {
+        return currencyEJB.getallcurrencys();
+
+    }
+
+    @GET
+    @Path("/creditperclient")
+    public ClientsCreditsDTO GetCreditPerClient() {
+        return userEJB.getcreditperclient();
+    }
+
+    @GET
+    @Path("/paymentperclient")
+    public ClientsPaymentsDTO GetPaymentPerClient() {
+        return userEJB.getpaymentperclient();
+    }
+
+    @GET
+    @Path("/balanceofaclient/{emailuser}")
+    public ClientCreditPaymentDTO GetBalanceofaClient(@PathParam("emailuser") String emailuser) {
+        return userEJB.getbalanceofclient(emailuser);
+    }
+
+    @GET
+    @Path("/sumofcredits")
+    public double gettotalcredits() {
+        return userEJB.gettotalcredits();
+    }
+
+    @GET
+    @Path("/sumofpayments")
+    public double GetTotalPayments() {
+        return userEJB.GetTotalPayments();
+    }
+
+    @GET
+    @Path("/totalbalance")
+    public double GetTotalBalance() {
+        return userEJB.gettotalcredits() + userEJB.GetTotalPayments();
     }
 
     @POST

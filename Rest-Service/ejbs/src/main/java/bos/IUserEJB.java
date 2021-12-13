@@ -1,12 +1,13 @@
 package bos;
 
+import dtos.*;
 import entities.User;
-import dtos.UserDTO;
-import javax.ejb.Remote;
+
+import javax.ejb.Local;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-@Remote
+@Local
 public interface IUserEJB {
     public UserDTO insert(UserDTO dto) throws NoSuchAlgorithmException, InvalidKeySpecException;
     public UserDTO checkusercredentials(String email, String password) throws NoSuchAlgorithmException, InvalidKeySpecException;
@@ -18,4 +19,11 @@ public interface IUserEJB {
     public void updateusername(Long id,String newname);
     public void updatepassword(Long id,String password) throws NoSuchAlgorithmException, InvalidKeySpecException;
     public void updatewallet(Long id,Double wallet);
+    public UsersDTO getallusers();
+    public UsersDTO getallmanagers();
+    public ClientsCreditsDTO getcreditperclient();
+    public ClientsPaymentsDTO getpaymentperclient();
+    public ClientCreditPaymentDTO getbalanceofclient(String emailuser);
+    public double gettotalcredits();
+    public double GetTotalPayments();
 }
