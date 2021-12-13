@@ -73,12 +73,12 @@ public class Clients {
         props.put("buffer.memory", 33554432);
 
         props.put("key.serializer",
-                "org.apache.kafka.common.serialization.StringSerializer");
+                "org.apache.kafka.common.serialization.LongSerializer");
 
         props.put("value.serializer",
                 "org.apache.kafka.common.serialization.StringSerializer");
 
-        KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+        KafkaProducer<Long, String> producer = new KafkaProducer<>(props);
 
         while (true) {
             if (!managers.isEmpty() && !clients.isEmpty() && !currencies.isEmpty()) {
@@ -101,7 +101,8 @@ public class Clients {
                         date);
 
                 String topic = value > 0 ? "Payments" : "Credits";
-                producer.send(new ProducerRecord<>(topic, null, gson.toJson(dto).toString()));
+
+                producer.send(new ProducerRecord<>(topic, dto.getId_client(), gson.toJson(dto)));
 
                 System.out.println("Sent to topic: "+topic);
             }
@@ -159,24 +160,24 @@ public class Clients {
             props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
             props.put("key.deserializer",
-                    "org.apache.kafka.common.serialization.StringDeserializer");
+                    "org.apache.kafka.common.serialization.LongDeserializer");
 
             props.put("value.deserializer",
                     "org.apache.kafka.common.serialization.StringDeserializer");
 
             if(isuser) {
 
-                KafkaConsumer<String, String> usersconsumer = new KafkaConsumer<>(props);
+                KafkaConsumer<Long, String> usersconsumer = new KafkaConsumer<>(props);
                 usersconsumer.subscribe(Collections.singletonList("DBInfo-userentity"));
 
                 while (true) {
-                    ConsumerRecords<String,String> records = usersconsumer.poll(Duration.ofMillis(Long.MAX_VALUE));
+                    ConsumerRecords<Long,String> records = usersconsumer.poll(Duration.ofMillis(Long.MAX_VALUE));
 
-                    for (ConsumerRecord<String, String> record : records) {
-//                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-//                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
-//                        UserDTO user = gson.fromJson(obj.get("payload"), UserDTO.class);
-                        UserDTO user = gson.fromJson(String.valueOf(record.value()), UserDTO.class);
+                    for (ConsumerRecord<Long, String> record : records) {
+                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
+                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
+                        UserDTO user = gson.fromJson(obj.get("payload"), UserDTO.class);
+//                        UserDTO user = gson.fromJson(String.valueOf(record.value()), UserDTO.class);
                         if (user.isIsmanager()) {
                             managers.add(user);
                         } else {
@@ -187,17 +188,17 @@ public class Clients {
 
                 }
             } else {
-                KafkaConsumer<String, String> currencyconsumer = new KafkaConsumer<>(props);
+                KafkaConsumer<Long, String> currencyconsumer = new KafkaConsumer<>(props);
                 currencyconsumer.subscribe(Collections.singletonList("DBInfo-currencyentity"));
                 while (true)
                 {
-                    ConsumerRecords<String, String> records = currencyconsumer.poll(Duration.ofMillis(Long.MAX_VALUE));
+                    ConsumerRecords<Long, String> records = currencyconsumer.poll(Duration.ofMillis(Long.MAX_VALUE));
 
-                    for (ConsumerRecord<String, String> record : records) {
+                    for (ConsumerRecord<Long, String> record : records) {
 //                        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-//                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
-//                        CurrencyDTO currency = gson.fromJson(obj.get("payload"), CurrencyDTO.class);
-                        CurrencyDTO currency = gson.fromJson(String.valueOf(record.value()), CurrencyDTO.class);
+                        JsonObject obj = gson.fromJson(String.valueOf(record.value()), JsonObject.class);
+                        CurrencyDTO currency = gson.fromJson(obj.get("payload"), CurrencyDTO.class);
+//                        CurrencyDTO currency = gson.fromJson(String.valueOf(record.value()), CurrencyDTO.class);
                         currencies.add(currency);
                     }
                     currencyconsumer.commitAsync();

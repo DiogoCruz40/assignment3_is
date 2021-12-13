@@ -24,11 +24,15 @@ import java.util.Properties;
 public class CreditsperClient {
 
     public static void main(String[] args) throws InterruptedException, IOException {
+        Gson gson = new Gson();
 
         // Configurations
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streamtoresultstopics");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.Long().getClass());
+        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+
 
         StreamsBuilder builder = new StreamsBuilder();
         final String outtopicname = "CreditsPerClient";
@@ -55,27 +59,42 @@ public class CreditsperClient {
 
         final Serde<CreditDTO> creditDTOSerde = Serdes.serdeFrom(creditDTOSerializer, creditDTODeserializer);
 
-        //Get the credits per client.
+//        KStream<String, CreditPaymentDTO> linesCredito = builder.stream("Credits", Consumed.with(Serdes.String(), creditPaymentDTOSerde));
+        KStream<Long, String> linesCredito = builder.stream("Credits");
 
-        //receber linhas do topico creditos (topicName):
-        KStream<String, CreditPaymentDTO> linesCredito = builder.stream("Credits", Consumed.with(Serdes.String(), creditPaymentDTOSerde));
-        //as linhas ficam em linescredito
+//        linesCredito.map((k, v) -> {
+//            CreditPaymentDTO dto = gson.fromJson(String.valueOf(v), CreditPaymentDTO.class);
+//            CreditDTO credit = new CreditDTO(dto.getValue() + (dto.getValue() * dto.getExchangerate()));
+//            return new KeyValue<>(dto.getId_client(),gson.toJson(credit));
+//        })
+//        .foreach((k, v) -> {
+//            System.out.println(k +" -> " + v);
+//        });
 
-        linesCredito.to(outtopicname,  Produced.with(Serdes.String(), creditPaymentDTOSerde));
+        KTable<Long, String> outline_credit = linesCredito.map((k, v) -> {
+                        CreditPaymentDTO dto = gson.fromJson(String.valueOf(v), CreditPaymentDTO.class);
+                        CreditDTO credit = new CreditDTO(dto.getId_client(), dto.getValue() + (dto.getValue() * dto.getExchangerate()));
 
-//        KTable<Long, CreditDTO> outline_credit = linesCredito.map((k, v) -> {
-//                        System.out.println(v.getId_client() + "asdasda");
-//                        return new KeyValue<>(v.getId_client(),new CreditDTO(v.getValue() + (v.getValue() * v.getExchangerate())));
-//                    })
-//                    .groupByKey()
-//                    .reduce((newval, oldval) -> {
-//                        newval.setCredit(newval.getCredit() + oldval.getCredit());
-//                        System.out.println(newval.getCredit());
-//                        return newval;
-//                    });
-//
+                        return new KeyValue<>(k,gson.toJson(credit));
+                    })
+                    .groupByKey()
+                    .reduce((newval, oldval) -> {
+                        CreditDTO dtoNewVal = gson.fromJson(String.valueOf(newval), CreditDTO.class);
+                        CreditDTO dtoOldVal = gson.fromJson(String.valueOf(oldval), CreditDTO.class);
+
+                        dtoNewVal.setCredit(dtoNewVal.getCredit() + dtoOldVal.getCredit());
+
+                        return gson.toJson(dtoNewVal);
+                    });
+
 //        outline_credit.toStream().to(outtopicname,  Produced.with(Serdes.Long(), creditDTOSerde));
+        outline_credit.toStream().map((k, v) -> {
+            CreditDTO dto = gson.fromJson(String.valueOf(v), CreditDTO.class);
 
+            System.out.println(dto.toRecord(gson));
+
+            return new KeyValue<>(k, dto.toRecord(gson));
+        }).to(outtopicname);
 
         //Run Stream
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
@@ -83,9 +102,8 @@ public class CreditsperClient {
 
         System.out.println("Press enter when ready...");
         System.in.read();
+        //Thread.sleep(3_000_000);
         System.out.println("enter pressed");
-
-        Thread.sleep(5000L);
 
         streams.close();
 
