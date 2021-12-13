@@ -16,8 +16,11 @@ public class ClientCredit implements Serializable {
     @PrimaryKeyJoinColumn
     private User user;
 
-    @Column(name="credit", nullable=false, unique=false)
+    @Column(name="credit", nullable=true, unique=false)
     private double credit;
+
+    @Column(name="payment", nullable=true, unique=false)
+    private double payment;
 
     public ClientCredit() { }
 
@@ -43,5 +46,13 @@ public class ClientCredit implements Serializable {
 
     public void setCredit(double credit) {
         this.credit = credit;
+    }
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
     }
 }
