@@ -1,7 +1,8 @@
 KafkaStreams/CreditsperClient.class
+dtos/CreditPaymentDTO.class
 help/SimpleConsumer.class
 help/SimpleStreamsExercises.class
-dtos/CreditPaymentDTO.class
 dtos/UserDTO.class
+dtos/CreditDTO.class
 help/SimpleProducer.class
 dtos/CurrencyDTO.class

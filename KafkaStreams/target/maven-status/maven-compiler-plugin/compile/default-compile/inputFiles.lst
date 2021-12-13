@@ -1,7 +1,8 @@
-/workspace/assignment3/KafkaStreams/src/main/java/help/SimpleProducer.java
-/workspace/assignment3/KafkaStreams/src/main/java/dtos/CurrencyDTO.java
-/workspace/assignment3/KafkaStreams/src/main/java/KafkaStreams/CreditsperClient.java
-/workspace/assignment3/KafkaStreams/src/main/java/help/SimpleConsumer.java
-/workspace/assignment3/KafkaStreams/src/main/java/dtos/UserDTO.java
-/workspace/assignment3/KafkaStreams/src/main/java/dtos/CreditPaymentDTO.java
-/workspace/assignment3/KafkaStreams/src/main/java/help/SimpleStreamsExercises.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/help/SimpleProducer.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/dtos/CreditPaymentDTO.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/dtos/UserDTO.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/dtos/CurrencyDTO.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/help/SimpleConsumer.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/help/SimpleStreamsExercises.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/KafkaStreams/CreditsperClient.java
+/workspace/assignment3_is/KafkaStreams/src/main/java/dtos/CreditDTO.java

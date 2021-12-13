@@ -2,15 +2,23 @@ package KafkaStreams;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import dtos.CreditDTO;
 import dtos.CreditPaymentDTO;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.examples.pageview.JsonPOJODeserializer;
+import org.apache.kafka.streams.examples.pageview.JsonPOJOSerializer;
 import org.apache.kafka.streams.kstream.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class CreditsperClient {
@@ -20,22 +28,67 @@ public class CreditsperClient {
         // Configurations
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streamtoresultstopics");
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.Double().getClass());
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 
         StreamsBuilder builder = new StreamsBuilder();
-        final String outtopicname = "CreditsperClient";
+        final String outtopicname = "CreditsPerClient";
+
+        Map<String, Object> serdeProps = new HashMap<>();
+        final Serializer<CreditPaymentDTO> creditPaymentDTOSerializer = new JsonPOJOSerializer<>();
+        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
+        creditPaymentDTOSerializer.configure(serdeProps, false);
+
+        final Deserializer<CreditPaymentDTO> creditPaymentDTODeserializer = new JsonPOJODeserializer<>();
+        serdeProps.put("JsonPOJOClass", CreditPaymentDTO.class);
+        creditPaymentDTODeserializer.configure(serdeProps, false);
+
+        final Serde<CreditPaymentDTO> creditPaymentDTOSerde = Serdes.serdeFrom(creditPaymentDTOSerializer, creditPaymentDTODeserializer);
+
+        serdeProps = new HashMap<>();
+        final Serializer<CreditDTO> creditDTOSerializer = new JsonPOJOSerializer<>();
+        serdeProps.put("JsonPOJOClass", CreditDTO.class);
+        creditDTOSerializer.configure(serdeProps, false);
+
+        final Deserializer<CreditDTO> creditDTODeserializer = new JsonPOJODeserializer<>();
+        serdeProps.put("JsonPOJOClass", CreditDTO.class);
+        creditDTODeserializer.configure(serdeProps, false);
+
+        final Serde<CreditDTO> creditDTOSerde = Serdes.serdeFrom(creditDTOSerializer, creditDTODeserializer);
 
         //Get the credits per client.
 
         //receber linhas do topico creditos (topicName):
-        KStream<String, Double> linesCredito = builder.stream("Credits");
+        KStream<String, CreditPaymentDTO> linesCredito = builder.stream("Credits", Consumed.with(Serdes.String(), creditPaymentDTOSerde));
         //as linhas ficam em linescredito
 
-        KTable<String,Double> outline_credit = linesCredito.map((k,v) -> new KeyValue<>(k,getValue(String.valueOf(v)))).
-                groupByKey(Grouped.with(Serdes.String(),Serdes.Double())).reduce(Double::sum);
-        outline_credit.toStream().to(outtopicname);
+        linesCredito.to(outtopicname,  Produced.with(Serdes.String(), creditPaymentDTOSerde));
+
+//        KTable<Long, CreditDTO> outline_credit = linesCredito.map((k, v) -> {
+//                        System.out.println(v.getId_client() + "asdasda");
+//                        return new KeyValue<>(v.getId_client(),new CreditDTO(v.getValue() + (v.getValue() * v.getExchangerate())));
+//                    })
+//                    .groupByKey()
+//                    .reduce((newval, oldval) -> {
+//                        newval.setCredit(newval.getCredit() + oldval.getCredit());
+//                        System.out.println(newval.getCredit());
+//                        return newval;
+//                    });
+//
+//        outline_credit.toStream().to(outtopicname,  Produced.with(Serdes.Long(), creditDTOSerde));
+
+
+        //Run Stream
+        KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        streams.start();
+
+        System.out.println("Press enter when ready...");
+        System.in.read();
+        System.out.println("enter pressed");
+
+        Thread.sleep(5000L);
+
+        streams.close();
+
         //depois passar para keytable
         // mapear linescredito (da kstream de antes) para uma tabela
 //        KTable<String, Double> tablecredito = linesCredito.mapValues(new ValueMapper<String, Double>() {
@@ -68,10 +121,6 @@ public class CreditsperClient {
                 KStream<String,  Long> classicalSongs = builder.stream(topicName);
                 KStream<String,  Long> allSongs = rockSongs.merge(classicalSongs);
         */
-
-        //Run Stream
-        KafkaStreams streams = new KafkaStreams(builder.build(), props);
-        streams.start();
 
         //
     }

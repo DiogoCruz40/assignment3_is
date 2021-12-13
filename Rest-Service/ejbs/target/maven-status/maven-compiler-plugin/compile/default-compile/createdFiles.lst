@@ -2,7 +2,7 @@ bos/CurrencyEJB.class
 bos/UserEJB.class
 dtos/UserDTO.class
 bos/IHelperEJB.class
-bos/ICurrencyEJB.class
 bos/HelperEJB.class
+bos/ICurrencyEJB.class
 bos/IUserEJB.class
 dtos/CurrencyDTO.class
