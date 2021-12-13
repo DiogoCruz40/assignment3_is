@@ -149,7 +149,7 @@ public class UserDAO {
 
     public ArrayList<ClientCredit> getcreditperclient()
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.credit from ClientCredit u where u.user.isManager=:manager").setParameter("manager",false).getResultList();
+        List<ClientCredit> result = em.createQuery("select c from ClientCredit c JOIN c.user u where u.isManager=:manager").setParameter("manager",false).getResultList();
 
         ArrayList<ClientCredit> clientsCredits = new ArrayList<>();
         for (ClientCredit clientCredit : result)
@@ -162,7 +162,7 @@ public class UserDAO {
 
     public ArrayList<ClientCredit> getpaymentperclient()
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.payment from ClientCredit u where u.user.isManager=:manager").setParameter("manager",false).getResultList();
+        List<ClientCredit> result = (List<ClientCredit>) em.createQuery("select c from ClientCredit c JOIN c.user u where u.isManager=:manager").setParameter("manager",false).getResultList();
 
         ArrayList<ClientCredit> clientsCredits = new ArrayList<>();
         for (ClientCredit clientCredit : result)
@@ -174,7 +174,7 @@ public class UserDAO {
 
     public ClientCredit getbalanceofclient(String emailuser)
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.credit,u.payment from ClientCredit u where u.user.emailuser=:emailuser and u.user.isManager=:manager").setParameter("emailuser",emailuser).setParameter("manager",false).getResultList();
+        List<ClientCredit> result = em.createQuery("select c from ClientCredit c JOIN c.user u where u.emailuser=:emailuser and u.isManager=:manager").setParameter("emailuser",emailuser).setParameter("manager",false).getResultList();
         if(!result.isEmpty())
         {
             return result.get(0);
@@ -184,7 +184,7 @@ public class UserDAO {
 
     public double gettotalcredits()
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.credit from ClientCredit u").getResultList();
+        List<ClientCredit> result = em.createQuery("select u from ClientCredit u JOIN u.user c").getResultList();
         double creditos = 0;
         for (ClientCredit clientCredit : result)
         {
@@ -194,7 +194,7 @@ public class UserDAO {
     }
     public double GetTotalPayments()
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.payment from ClientCredit u").getResultList();
+        List<ClientCredit> result = em.createQuery("select u from ClientCredit u JOIN u.user c").getResultList();
         double payment = 0;
 
         for (ClientCredit clientCredit : result)

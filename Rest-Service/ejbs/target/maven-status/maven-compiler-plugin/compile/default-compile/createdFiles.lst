@@ -9,7 +9,7 @@ dtos/ClientCreditDTO.class
 bos/CurrencyEJB.class
 dtos/UsersDTO.class
 dtos/UserDTO.class
-dtos/CurrencysDTO.class
 dtos/ClientCreditPaymentDTO.class
+dtos/CurrencysDTO.class
 bos/ICurrencyEJB.class
 dtos/ClientsCreditsDTO.class
