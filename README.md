@@ -28,7 +28,7 @@ $ `cp -a /workspace/assignment3/KafkaStreams/src/main/java/libs/. /opt/kafka_2.1
 `
 
 ###Create the connection:
-$ `/opt/kafka_2.13-2.8.1/bin/connect-standalone.sh /opt/kafka_2.13-2.8.1/config/connect-standalone.properties /opt/kafka_2.13-2.8.1/config/connect-jdbc-source-filipe.properties /opt/kafka_2.13-2.8.1/config/connect-jdbc-sink-filipe.properties`
+$ `/opt/kafka_2.13-2.8.1/bin/connect-standalone.sh /opt/kafka_2.13-2.8.1/config/connect-standalone.properties /opt/kafka_2.13-2.8.1/config/connect-jdbc-source-db.properties /opt/kafka_2.13-2.8.1/config/connect-jdbc-sink-db.properties`
 
 ###Run method:
 
@@ -37,7 +37,12 @@ $ `/opt/kafka_2.13-2.8.1/bin/connect-standalone.sh /opt/kafka_2.13-2.8.1/config/
 3. finnally, the Producer
 
 #To execute the application:
-$ `java -jar KafkaStreams/target/KafkaStreams-1.0-SNAPSHOT.jar restclient/target/restclient-1.jar`
+
+###Package KafkaClients, KafkaStreams:
+$ `cd /workspace/assignment3/KafkaClients && mvn clean package && cd /workspace/assignment3/KafkaStreams && mvn clean package`
+
+###Execute the app:
+$ `java -jar /workspace/assignment3/KafkaClients/target/KafkaClients-jar-with-dependencies.jar /workspace/assignment3/KafkaStreams/target/KafkaStreams-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>
