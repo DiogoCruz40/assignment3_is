@@ -210,9 +210,10 @@ public class UserDAO {
         List<ClientCredit> result = em.createQuery("select c from ClientCredit c JOIN c.user u").getResultList();
         if(!result.isEmpty()) {
             double payment, credit = 0;
-            ClientCredit clientCreditmaxdebt = new ClientCredit();
+            ClientCredit clientCreditmaxdebt = result.get(0);
             payment = result.get(0).getPayment();
             credit = result.get(0).getCredit();
+
             for (ClientCredit clientCredit : result)
             {
                 if ((payment + credit) > (clientCredit.getPayment() + clientCredit.getCredit()))
