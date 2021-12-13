@@ -11,5 +11,6 @@ dtos/UsersDTO.class
 dtos/UserDTO.class
 dtos/CurrencysDTO.class
 dtos/ClientCreditPaymentDTO.class
+dtos/ClientHighestDebtDTO.class
 bos/ICurrencyEJB.class
 dtos/ClientsCreditsDTO.class

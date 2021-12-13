@@ -82,6 +82,9 @@ $ `http://localhost:8080/rest/services/myservice/sumofpayments`
 ##Get balanço total:
 $ `http://localhost:8080/rest/services/myservice/totalbalance`
 
+##Get cliente com maior dívida:
+$ `http://localhost:8080/rest/services/myservice/highestdebt`
+
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>
 https://eai-course.blogspot.com/2018/11/playing-with-kafka-streams.html

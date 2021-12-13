@@ -3,6 +3,7 @@
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientsCreditsDTO.java
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/UsersDTO.java
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/CurrencysDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientHighestDebtDTO.java
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientPaymentDTO.java
 /workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IUserEJB.java
