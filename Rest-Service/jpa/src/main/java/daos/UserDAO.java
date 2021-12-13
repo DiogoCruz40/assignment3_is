@@ -207,7 +207,7 @@ public class UserDAO {
 
     public ClientCredit GetHighestDebtClient()
     {
-        List<ClientCredit> result = em.createQuery("select u.user,u.credit,u.payment from ClientCredit u").getResultList();
+        List<ClientCredit> result = em.createQuery("select c from ClientCredit c JOIN c.user u").getResultList();
         if(!result.isEmpty()) {
             double payment, credit = 0;
             ClientCredit clientCreditmaxdebt = new ClientCredit();
