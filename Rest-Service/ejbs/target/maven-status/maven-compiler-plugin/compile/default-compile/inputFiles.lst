@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/dtos/CurrencysDTO.java
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/IHelperEJB.java
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
@@ -13,3 +14,21 @@
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/dtos/ClientCreditPaymentDTO.java
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/bos/ICurrencyEJB.java
 /workspace/assignment3_is/Rest-Service/ejbs/src/main/java/dtos/ClientsPaymentsDTO.java
+=======
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientCreditPaymentDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IHelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientsCreditsDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/UsersDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/CurrencysDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientHighestDebtDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/HelperEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientPaymentDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/IUserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/UserEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/UserDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientsPaymentsDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/ICurrencyEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/CurrencyDTO.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/bos/CurrencyEJB.java
+/workspace/assignment3/Rest-Service/ejbs/src/main/java/dtos/ClientCreditDTO.java
+>>>>>>> main

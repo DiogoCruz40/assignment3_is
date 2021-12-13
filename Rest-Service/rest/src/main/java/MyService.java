@@ -77,6 +77,12 @@ public class MyService {
         return userEJB.gettotalcredits() + userEJB.GetTotalPayments();
     }
 
+    @GET
+    @Path("/highestdebt")
+    public ClientHighestDebtDTO GetHighestDebtClient() {
+        return userEJB.GetHighestDebtClient();
+    }
+
     @POST
     @Path("/user")
     public UserDTO CreateUser(UserDTO dto) throws NoSuchAlgorithmException, InvalidKeySpecException {

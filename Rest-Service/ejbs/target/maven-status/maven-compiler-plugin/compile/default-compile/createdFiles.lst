@@ -10,6 +10,10 @@ bos/CurrencyEJB.class
 dtos/UsersDTO.class
 dtos/UserDTO.class
 dtos/ClientCreditPaymentDTO.class
+<<<<<<< HEAD
 dtos/CurrencysDTO.class
+=======
+dtos/ClientHighestDebtDTO.class
+>>>>>>> main
 bos/ICurrencyEJB.class
 dtos/ClientsCreditsDTO.class

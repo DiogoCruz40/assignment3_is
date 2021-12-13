@@ -204,4 +204,27 @@ public class UserDAO {
 
         return payment;
     }
+
+    public ClientCredit GetHighestDebtClient()
+    {
+        List<ClientCredit> result = em.createQuery("select u.user,u.credit,u.payment from ClientCredit u").getResultList();
+        if(!result.isEmpty()) {
+            double payment, credit = 0;
+            ClientCredit clientCreditmaxdebt = new ClientCredit();
+            payment = result.get(0).getPayment();
+            credit = result.get(0).getCredit();
+            for (ClientCredit clientCredit : result)
+            {
+                if ((payment + credit) > (clientCredit.getPayment() + clientCredit.getCredit()))
+                {
+                    payment = clientCredit.getPayment();
+                    credit = clientCredit.getCredit();
+                    clientCreditmaxdebt = clientCredit;
+                }
+            }
+            return clientCreditmaxdebt;
+
+        }
+        return null;
+    }
 }

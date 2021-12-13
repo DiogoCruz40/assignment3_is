@@ -1,5 +1,6 @@
 #Assignment3_is
-This is a description of how to use kafka streams and deploy a Rest Service.
+This is a description of how to use kafka streams and deploy a Rest Service. \
+Finnally we use postman as our admin cli.
 
 #Rest Service
 
@@ -81,6 +82,9 @@ $ `http://localhost:8080/rest/services/myservice/sumofpayments`
 
 ##Get balanço total:
 $ `http://localhost:8080/rest/services/myservice/totalbalance`
+
+##Get cliente com maior dívida:
+$ `http://localhost:8080/rest/services/myservice/highestdebt`
 
 #Resources:
 https://eai-course.blogspot.com/2019/11/how-to-configure-kafka-connectors.html <br>

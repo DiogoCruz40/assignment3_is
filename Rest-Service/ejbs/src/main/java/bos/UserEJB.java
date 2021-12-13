@@ -170,4 +170,16 @@ public class UserEJB implements IUserEJB{
         return userDAO.GetTotalPayments();
     }
 
+    @Override
+    public ClientHighestDebtDTO GetHighestDebtClient() {
+        UserDAO userDAO = new UserDAO(em);
+      ClientCredit clientCredit = userDAO.GetHighestDebtClient();
+      if(clientCredit != null)
+      {
+      UserDTO userDTO = new UserDTO(clientCredit.getUser().getId(),clientCredit.getUser().getEmailuser(),clientCredit.getUser().getNomeuser());
+      return new ClientHighestDebtDTO(userDTO,clientCredit.getCredit() + clientCredit.getPayment());
+      }
+      return null;
+    }
+
 }

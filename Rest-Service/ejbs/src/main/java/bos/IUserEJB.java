@@ -26,4 +26,5 @@ public interface IUserEJB {
     public ClientCreditPaymentDTO getbalanceofclient(String emailuser);
     public double gettotalcredits();
     public double GetTotalPayments();
+    public ClientHighestDebtDTO GetHighestDebtClient();
 }
