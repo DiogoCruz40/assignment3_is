@@ -1,5 +1,6 @@
 #Assignment3_is
-This is a description of how to use kafka streams and deploy a Rest Service.
+This is a description of how to use kafka streams and deploy a Rest Service. \
+Finnally we use postman as our admin cli.
 
 #Rest Service
 
